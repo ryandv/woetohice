@@ -39,7 +39,7 @@ class TransactionPrinter(object):
     def visit(self, obj, depth):
         if obj.__class__ == LTTextLineHorizontal:
             if obj.x0 <= 350.00:
-                self.acc.append(Point(y0=obj.y0, data=obj.get_text().rstrip()))
+                self.acc.append(Point(x0=obj.x0, y0=obj.y0, data=obj.get_text().rstrip()))
         elif issubclass(obj.__class__, LTContainer):
             search(self, obj, depth + 1)
 
@@ -71,8 +71,8 @@ def main():
         print(json.dumps(list(
             map(lambda g:
                 list(map(lambda p:
-                    { "data": p.data },
-                    g
+                    str(p.data),
+                    sorted(g, key=lambda p: p.x0)
                     )),
                 filter(lambda g: len(list(g)) == 4 and map(lambda pt: re.compile(r"(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) \d{1,2}").match(pt.get_text()), g), groups)))))
 

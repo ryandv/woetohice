@@ -60,6 +60,7 @@ class DisjointSet(object):
 
 class Point(object):
     def __init__(self, **kwargs):
+        self.x0 = kwargs['x0']
         self.y0 = kwargs['y0']
         self.data = kwargs['data']
 
