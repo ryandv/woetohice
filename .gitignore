@@ -1,0 +1,6 @@
+build/
+dist/
+env/
+lib/
+woetohice.egg-info/
+woetohice/__pycache__/
