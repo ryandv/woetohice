@@ -8,7 +8,7 @@ This is a small utility for scraping transactions from TD credit card statement 
 
 It uses [pdfminer](https://pypi.org/project/pdfminer/) to search documents for text lines containing transaction dates and tries to find nearby text along the same horizontal line. To group transaction line items together, it uses ~machine learning~ a simple algorithm for finding fixed-radius near neighbors, merging pairs of points into a disjoint-set data structure.
 
-The approach is given in [this](https://cs.stackexchange.com/questions/85929/efficient-point-grouping-algorithm) StackExchange response.
+The approach is given in [this CS StackExchange](https://cs.stackexchange.com/a/85993) response.
 
 No guarantees of correctness or even minimum functionality are made.
 
