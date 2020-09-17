@@ -38,7 +38,8 @@ class TransactionPrinter(object):
 
     def visit(self, obj, depth):
         if obj.__class__ == LTTextLineHorizontal:
-            if obj.x0 <= 350.00:
+            # Ignore characters in side panels/margins
+            if obj.x0 <= 350.00 and obj.x0 > 20.00:
                 self.acc.append(Point(x0=obj.x0, y0=obj.y0, data=obj.get_text().rstrip()))
         elif issubclass(obj.__class__, LTContainer):
             search(self, obj, depth + 1)
